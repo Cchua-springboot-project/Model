@@ -12,9 +12,7 @@ package com.ssm.model;
 
 
 public class CompanyInfo {
-    /**
-    * 序号
-    */
+
     private String id;
 
     private String companyName;
