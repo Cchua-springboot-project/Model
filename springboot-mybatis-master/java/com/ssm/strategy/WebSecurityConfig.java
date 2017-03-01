@@ -1,21 +1,6 @@
 package com.ssm.strategy;
 
-/*
- * ****************<--*---Code information---*-->**************
- * 	
- *		Author: Cchua
- *		GitHub: https://github.com/vipcchua
- *		Blog  : weibo.com/vipcchua
- * 
- * 
- * ************************************************************/
-
-
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +9,9 @@ import org.springframework.security.authentication.AuthenticationDetailsSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Component;
-
-import com.ssm.strategy.*;
 
 
 @Configurable
@@ -57,8 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    private AuthenticationDetailsSource<HttpServletRequest, WebAuthenticationDetails> authenticationDetailsSource;
 
 	
-	@Autowired
-	private CustomUserDetailsService userDetailsService;
+	
 	
 	@Autowired
 	DataSource dataSource;

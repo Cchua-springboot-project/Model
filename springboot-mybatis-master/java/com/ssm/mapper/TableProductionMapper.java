@@ -1,28 +1,17 @@
 package com.ssm.mapper;
 
-/*
- * ****************<--*---Code information---*-->**************
- * 	
- *		Author: Cchua
- *		GitHub: https://github.com/vipcchua
- *		Blog  : weibo.com/vipcchua
- * 
- * 
- * ************************************************************/
+import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.UpdateProvider;
 
-import com.ssm.model.TableInfo;
-import com.ssm.model.TableInfoSql;
 import com.ssm.model.TableProduction;
 import com.ssm.model.TableProductionSql;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
-
-import javax.sound.midi.MidiDevice.Info;
-
-import org.apache.ibatis.annotations.*;
 
 @Mapper
 

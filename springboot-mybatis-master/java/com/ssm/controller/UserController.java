@@ -16,7 +16,6 @@ package com.ssm.controller;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,10 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ssm.mapper.TableInfoMapper;
 import com.ssm.mapper.UserMapper;
-
-import com.ssm.model.TableInfo;
 import com.ssm.model.User;
 
 import springfox.documentation.annotations.ApiIgnore;

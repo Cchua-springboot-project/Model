@@ -1,27 +1,18 @@
 package com.ssm.mapper;
 
-/*
- * ****************<--*---Code information---*-->**************
- * 	
- *		Author: Cchua
- *		GitHub: https://github.com/vipcchua
- *		Blog  : weibo.com/vipcchua
- * 
- * 
- * ************************************************************/
-
-
-import com.ssm.model.TableInfo;
-import com.ssm.model.TableProduction;
-import com.ssm.model.TableProductionSql;
-import com.ssm.model.TableUser;
-import com.ssm.model.TableUserSql;
-
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.UpdateProvider;
 
-
-import org.apache.ibatis.annotations.*;
+import com.ssm.model.TableUser;
+import com.ssm.model.TableUserSql;
 
 
 

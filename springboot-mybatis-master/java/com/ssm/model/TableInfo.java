@@ -1,7 +1,5 @@
 package com.ssm.model;
 
-import java.sql.Date;
-
 /*
  * ****************<--*---Code information---*-->**************
  * 	

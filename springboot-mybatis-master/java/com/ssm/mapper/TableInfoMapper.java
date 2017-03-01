@@ -1,5 +1,18 @@
 package com.ssm.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.UpdateProvider;
+
 /*
  * ****************<--*---Code information---*-->**************
  * 	
@@ -13,14 +26,6 @@ package com.ssm.mapper;
 
 import com.ssm.model.TableInfo;
 import com.ssm.model.TableInfoSql;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
-
-import javax.sound.midi.MidiDevice.Info;
-
-import org.apache.ibatis.annotations.*;
 
 @Mapper
 
@@ -41,6 +46,9 @@ public interface TableInfoMapper {
 	
 	@Select("SELECT * FROM table_info WHERE id = #{id}")
 	List<TableInfo> selectmodeuid (@Param("id") String string);
+	
+	@Select("SELECT * FROM table_info WHERE mould_number like CONCAT(#{keyword},'%')")
+	List<TableInfo> selectBykey (@Param("keyword") String keyword);
 	
 	/*
 	@Select("SELECT * ,(SELECT count(1) AS counts FROM table_production where table_production.repair_record ='1' AND mould_number = (SELECT table_info.mould_number from table_info where table_info.id = #{id}) ) as 'repair_record',(SELECT   sum(table_production.production_lifeNumber) AS counts  FROM table_production where mould_number = (SELECT table_info.mould_number  from table_info where table_info.id= #{id}) ) as 'mould_lifeNumber' FROM table_info where table_info.id = #{id}")
