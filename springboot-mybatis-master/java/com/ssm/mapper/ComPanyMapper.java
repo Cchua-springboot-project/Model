@@ -1,11 +1,5 @@
 package com.ssm.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.UpdateProvider;
-
 /*
  * ****************<--*---Code information---*-->**************
  * 	
@@ -19,6 +13,16 @@ import org.apache.ibatis.annotations.UpdateProvider;
 
 import com.ssm.model.CompanyInfo;
 import com.ssm.model.CompanyInfoSql;
+import com.ssm.model.TableInfo;
+import com.ssm.model.TableInfoSql;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.UUID;
+
+import javax.sound.midi.MidiDevice.Info;
+
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 

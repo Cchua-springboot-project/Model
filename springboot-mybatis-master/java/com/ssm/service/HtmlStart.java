@@ -1,11 +1,26 @@
 package com.ssm.service;
 
+/*
+ * ****************<--*---Code information---*-->**************
+ * 	
+ *		Author: Cchua
+ *		GitHub: https://github.com/vipcchua
+ *		Blog  : weibo.com/vipcchua
+ * 
+ * 
+ * ************************************************************/
+
+
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
  
 @Controller
 public class HtmlStart {
  
+    private Logger logger = Logger.getLogger(HtmlStart.class);
  
     /*
     *   http://localhost:8080/hello?name=cn.7player

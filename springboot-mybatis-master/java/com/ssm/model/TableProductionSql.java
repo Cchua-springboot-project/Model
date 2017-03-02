@@ -13,6 +13,8 @@ package com.ssm.model;
 
 import org.apache.ibatis.jdbc.SQL;
 
+import com.ssm.model.*;
+
 public class TableProductionSql {
 
 	public String UpdateTableProduction(final TableProduction tableProduction) {

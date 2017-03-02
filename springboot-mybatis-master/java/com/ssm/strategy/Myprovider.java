@@ -1,27 +1,47 @@
 package com.ssm.strategy;
 
+/*
+ * ****************<--*---Code information---*-->**************
+ * 	
+ *		Author: Cchua
+ *		GitHub: https://github.com/vipcchua
+ *		Blog  : weibo.com/vipcchua
+ * 
+ * 
+ * ************************************************************/
+
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.mysql.cj.core.exceptions.PasswordExpiredException;
-import com.ssm.currency.AesUtils;
 import com.ssm.currency.RSAUtils;
 /*
 import com.rails.core.frame.security.userdetails.MyUserDetails;
 import com.rails.core.frame.security.userdetails.MyUserDetailsService;
 */
 import com.ssm.mapper.TableUserMapper;
+import com.ssm.model.InterfaceData;
 import com.ssm.model.TableUser;
+import com.alibaba.fastjson.JSON;
+import com.mysql.cj.core.exceptions.PasswordExpiredException;
+import com.ssm.currency.AesUtils;
 
 @Component
 public class Myprovider implements AuthenticationProvider {

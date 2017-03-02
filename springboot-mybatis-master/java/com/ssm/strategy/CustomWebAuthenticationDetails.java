@@ -15,6 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
+
 public class CustomWebAuthenticationDetails extends WebAuthenticationDetails {
 	/**
 	 * 

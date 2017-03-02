@@ -1,16 +1,29 @@
 package com.ssm.controller;
 
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
+/*
+ * ****************<--*---Code information---*-->**************
+ * 	
+ *		Author: Cchua
+ *		GitHub: https://github.com/vipcchua
+ *		Blog  : weibo.com/vipcchua
+ * 
+ * 
+ * ************************************************************/
+
+
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
+import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.ibatis.session.SqlSessionFactory;
+import javax.swing.text.html.HTML.Tag;
+import java.util.UUID;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +33,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.File;
+import java.io.InputStream;
+import java.io.Reader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONStreamAware;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import com.ssm.Application;
 import com.ssm.CchuaProperties;
 import com.ssm.mapper.TableInfoMapper;
+
 import com.ssm.model.TableInfo;
+import com.ssm.model.TableProduction;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -249,7 +286,7 @@ public class TableInfoController {
 
 	}
 
-	@ApiOperation(value = "模糊查询所有模具信息并分页", notes = "分页返回所有模具信息，并且按照选择排序方式", response = TableInfo.class)
+	@ApiOperation(value = "模糊查询所有模具信息并分页", notes = "分页返回所有模具信息，并且按照选择排序方式 sorting 以数据库字段为标准 ", response = TableInfo.class)
 	@RequestMapping(value = "/selectmodelallpaging", method = RequestMethod.POST)
 	@ResponseBody
 	public List<TableInfo> selectmodelallpaging(@RequestBody String selectmodelallpaging, Model model) {
@@ -271,7 +308,7 @@ public class TableInfoController {
 
 	})
 	@ApiResponses({ @ApiResponse(code = 400, message = "请求参数没填好"),
-			@ApiResponse(code = 404, message = "请求路径没有或页面跳转路径不对") })
+	@ApiResponse(code = 404, message = "请求路径没有或页面跳转路径不对") })
 
 	@RequestMapping(value = "/slTableInfo", method = RequestMethod.POST)
 	@ResponseBody
@@ -287,41 +324,29 @@ public class TableInfoController {
 
 	}
 
-	@ApiOperation(value = "模糊查询编号开头匹配的模具信息", notes = "返回编号开头匹配的模具", response = TableInfo.class)
-	@RequestMapping(value = "/selectmodelbykey", method = RequestMethod.POST)
-	@ResponseBody
-	public List<TableInfo> selectmodelbykey(String keyword) {
-		
-		List<TableInfo> TableInfo = tableInfoMapper.selectBykey(keyword);
-		System.out.println(TableInfo.get(0).getId());
-		return TableInfo;
-		
-	}
-
 	private String uuid() {
 		String uuid = UUID.randomUUID().toString();
 		System.out.println(uuid);
 
 		return uuid;
 	}
-
-	private String attime() {
-		Date d = new Date();
-		System.out.println(d);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String dateNowStr = sdf.format(d);
-		System.out.println("格式化后的日期：" + dateNowStr);
-
-		String str = "2012-1-13 17:26:33"; // 要跟上面sdf定义的格式一样
-		Date today;
+	private  String attime()  {
+        Date d = new Date();  
+        System.out.println(d);  
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+        String dateNowStr = sdf.format(d);  
+        System.out.println("格式化后的日期：" + dateNowStr);  
+          
+        String str = "2012-1-13 17:26:33";  //要跟上面sdf定义的格式一样  
+        Date today;
 		try {
 			today = sdf.parse(str);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		/* System.out.println("字符串转成日期：" + today); */
-		return dateNowStr;
+		}  
+      /*  System.out.println("字符串转成日期：" + today);*/
+		return dateNowStr;  
 	}
-
+    
 }
